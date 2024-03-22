@@ -1,5 +1,5 @@
 import sequelize from "../database/db.js";
-import CompanyModel from "../models/companyModel.js";
+import CompanyModel from "../models/CompanyModel.js";
 import { Op, QueryTypes, Sequelize } from "sequelize";
 
 export const getCompanyList = async (req, res) => {
