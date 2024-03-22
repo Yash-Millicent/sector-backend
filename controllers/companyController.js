@@ -1,5 +1,5 @@
 import sequelize from "../database/db.js";
-import CompanyModel from "../models/CompanyModel.js";
+import CompanyModel from "../models/companyModel.js";
 import { Op, QueryTypes, Sequelize } from "sequelize";
 
 export const getCompanyList = async (req, res) => {
@@ -13,9 +13,9 @@ export const getCompanyList = async (req, res) => {
         // type: Sequelize.QueryTypes.SELECT,
       })
       .then(function (companies) {
-        companies.forEach((company) => {
-          company.percent = Math.floor(Math.random() * (15 - -50 + 1)) + -10;
-        });
+        // companies.forEach((company) => {
+        //   company.percent = Math.floor(Math.random() * (15 - -50 + 1)) + -10;
+        // });
 
         res.json(companies);
       });
