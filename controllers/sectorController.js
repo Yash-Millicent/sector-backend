@@ -1,7 +1,7 @@
 import sequelize from "../database/db.js";
 import industryModel from "../models/IndustryModel.js";
 import Sector from "../models/SectorModel.js";
-import companyModel from "../models/companyModel.js";
+import companyModel from "../models/CompanyModel.js";
 import { getIndustryIDList } from "./companyController.js";
 import { getIndustryNameList } from "./industryController.js";
 import { Op, QueryTypes, Sequelize } from "sequelize";
