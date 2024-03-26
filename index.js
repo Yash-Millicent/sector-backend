@@ -5,6 +5,7 @@ import sequelize from "./database/db.js";
 import sector from "./routes/sectorRoutes.js";
 import industry from "./routes/industryRoutes.js";
 import company from "./routes/companyRoutes.js";
+import scanners from "./routes/scannerRoutes.js";
 import login from "./routes/authRoutes.js";
 
 dotenv.config();
@@ -38,6 +39,7 @@ app.use("/api", login);
 app.use("/api/sectors", sector);
 app.use("/api/industries", industry);
 app.use("/api/companies", company);
+app.use("/api/scanners", scanners);
 
 sequelize
   .authenticate()
@@ -45,6 +47,6 @@ sequelize
     console.log("Database connected successfully");
     app.listen(PORT, () => console.log(`Server is running on : ${PORT}`));
   })
-  .catch((err) => {
+  .catch(err => {
     console.error("Unable to connect to the database:", err);
   });
