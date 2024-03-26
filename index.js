@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: true,
+    origin: ["https://sector-analyser.netlify.app"],
     methods: ["PUT", "POST", "GET", "DELETE", "PATCH"],
     credentials: true,
   })
