@@ -32,3 +32,16 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const getTechnicalTableData = async (req, res) => {
+  try {
+    sequelize
+      .query("CALL `sp_get_technical-table-data`()")
+      .then(function (technical) {
+        res.json(technical);
+      });
+  } catch (error) {
+    console.error("Error getting getTechnicalTableData:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
