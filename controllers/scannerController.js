@@ -5,6 +5,7 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
   try {
     const headerType = req.params.headerType;
     const sectorOrIndices = req.params.sectorOrIndices;
+    console.log("header", headerType, sectorOrIndices);
     const parts = sectorOrIndices.split(/[-,:]/);
     // Extract the parts
     const selectedType = parts[0];
