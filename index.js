@@ -9,7 +9,7 @@ import scanners from "./routes/scannerRoutes.js";
 import login from "./routes/authRoutes.js";
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(express.json());
@@ -47,6 +47,6 @@ sequelize
     console.log("Database connected successfully");
     app.listen(PORT, () => console.log(`Server is running on : ${PORT}`));
   })
-  .catch(err => {
+  .catch((err) => {
     console.error("Unable to connect to the database:", err);
   });
