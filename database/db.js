@@ -7,7 +7,7 @@ dotenv.config();
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 const HOST = process.env.DB_HOST;
-const DATABASE = process.env.DB_DATABASE;
+const DATABASE = "shreeja_v2-0.1";
 // Initialize Sequelize with your database credentials
 const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
   host: HOST,
