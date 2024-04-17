@@ -20,7 +20,7 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
     }
     sequelize
       .query(
-        "CALL `sp_get_scanner_overview_v1`('gapup',0,26000)",
+        "CALL `sp_get_scanner_overview_v1`(:headerType,:sectorId, :indices)",
         {
           replacements: { headerType, sectorId, indices },
         }
