@@ -34,6 +34,35 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
   }
 };
 
+// export const getTopGainers = async (req, res) => {
+//   try {
+//     const sectorOrIndices = req.params.sectorOrIndices;
+//     console.log("sectorOrIndices", sectorOrIndices);
+//     const parts = sectorOrIndices.split(/[-,:]/);
+//     // Extract the parts
+//     const selectedType = parts[0];
+//     const number = parts[1];
+//     let sectorId = 0;
+//     let indices = 0;
+//     if (selectedType === "sector") {
+//       sectorId = number;
+//     }
+//     if (selectedType === "index") {
+//       indices = number;
+//     }
+//     sequelize
+//       .query("CALL `sp_get_top-gainers_v1`(:sectorId, :indices)", {
+//         replacements: { sectorId, indices },
+//       })
+//       .then(function (companies) {
+//         res.json(companies);
+//       });
+//   } catch (error) {
+//     console.error("Error in getTopGainers:", error);
+//     res.status(500).json({ message: error });
+//   }
+// };
+
 //Get Periodic high
 export const getPeriodicHighLow = async (req, res) => {
   try {
