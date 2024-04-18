@@ -35,6 +35,8 @@ app.use(
 //   // Proceed to other route handling
 // });
 
+app.set("serverTimeout", 120000);
+
 app.use("/api", login);
 app.use("/api/sectors", sector);
 app.use("/api/industries", industry);
