@@ -22,19 +22,6 @@ app.use(
   })
 );
 
-// app.get("/", (req, res) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   res.setHeader("Access-Control-Max-Age", "1800");
-//   res.setHeader("Access-Control-Allow-Headers", "content-type");
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "PUT, POST, GET, DELETE, PATCH, OPTIONS"
-//   );
-
-//   // Proceed to other route handling
-// });
-
 app.set("serverTimeout", 120000);
 
 app.use("/api", login);
