@@ -83,7 +83,7 @@ export const getPeriodicHighLow = async (req, res) => {
     }
     sequelize
       .query(
-        "CALL `sp_get_periodichighlow_v1`(:tableTab, :sectorId, :indices)",
+        "CALL `sp_get_periodichighlow-overview_v1`(:tableTab, :sectorId, :indices)",
         {
           replacements: { tableTab, sectorId, indices },
         }
