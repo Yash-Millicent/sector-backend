@@ -22,7 +22,13 @@ app.use(
   })
 );
 
-app.set("serverTimeout", 120000);
+// app.set("serverTimeout", 120000);
+app.use(function (req, res, next) {
+  req.setTimeout(500000, function () {
+    res.json({ error: "Server timeout !!" });
+  });
+  next();
+});
 
 app.use("/api", login);
 app.use("/api/sectors", sector);
