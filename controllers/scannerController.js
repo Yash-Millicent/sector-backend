@@ -4,8 +4,9 @@ import sequelize from "../database/db.js";
 export const getDetailsBySectorOrIndices = async (req, res) => {
   try {
     const headerType = req.params.headerType;
+    const type = req.params.type;
     const sectorOrIndices = req.params.sectorOrIndices;
-    console.log("header", headerType, sectorOrIndices);
+    console.log("header", headerType, type, sectorOrIndices);
     const parts = sectorOrIndices.split(/[-,:]/);
     // Extract the parts
     const selectedType = parts[0];
@@ -20,9 +21,9 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
     }
     sequelize
       .query(
-        "CALL `sp_get_scanner_overview_v1`(:headerType,:sectorId, :indices)",
+        "CALL `sp_get_scanner_overview_v1`(:headerType, :type, :sectorId, :indices)",
         {
-          replacements: { headerType, sectorId, indices },
+          replacements: { headerType, type, sectorId, indices },
         }
       )
       .then(function (companies) {
