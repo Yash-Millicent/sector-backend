@@ -1,14 +1,13 @@
 import express from "express";
 import {
   getDetailsBySectorOrIndices,
-  getPeriodicHighLow,
   getTechnicalTableData,
   // getTopGainers,
 } from "../controllers/scannerController.js";
 
 const router = express.Router();
 
-router.get("/:tableTab/:sectorOrIndices", getPeriodicHighLow);
+// router.get("/:tableTab/:sectorOrIndices", getPeriodicHighLow);
 router.get(
   "/id/:headerType/:type/:sectorOrIndices",
   getDetailsBySectorOrIndices

@@ -22,3 +22,22 @@ export const getIndustryList = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const getAreaGraph = async (req, res) => {
+  try {
+    const sectorId = req.params.id;
+    console.log("areagraph", sectorId);
+
+    sequelize
+      .query("CALL `sp_get_paperindex_v1`(:sectorId)", {
+        replacements: { sectorId },
+      })
+      .then(function (graphData) {
+        res.json(graphData);
+        console.log(graphData);
+      });
+  } catch (error) {
+    console.error("Error getting graph data:", error);
+    res.status(500).json({ message: error });
+  }
+};
