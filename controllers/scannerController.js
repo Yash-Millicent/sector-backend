@@ -6,7 +6,8 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
     const headerType = req.params.headerType;
     const type = req.params.type;
     const sectorOrIndices = req.params.sectorOrIndices;
-    console.log("header", headerType, type, sectorOrIndices);
+    const exch = req.params.exch;
+    console.log("header", headerType, type, sectorOrIndices, exch);
     const parts = sectorOrIndices.split(/[-,:]/);
     // Extract the parts
     const selectedType = parts[0];
@@ -21,9 +22,15 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
     }
     sequelize
       .query(
-        "CALL `sp_get_scanner_overview_v1`(:headerType, :type, :sectorId, :indices)",
+        "CALL `sp_get_scanner_overview_v1`(:headerType, :type, :sectorId, :indices, :exch)",
         {
-          replacements: { headerType, type, sectorId, indices },
+          replacements: {
+            headerType,
+            type,
+            sectorId,
+            indices,
+            exch,
+          },
         }
       )
       .then(function (companies) {

@@ -9,7 +9,7 @@ const router = express.Router();
 
 // router.get("/:tableTab/:sectorOrIndices", getPeriodicHighLow);
 router.get(
-  "/id/:headerType/:type/:sectorOrIndices",
+  "/id/:headerType/:type/:sectorOrIndices/:exch",
   getDetailsBySectorOrIndices
 );
 router.get("/technical-data", getTechnicalTableData);
