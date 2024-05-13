@@ -14,10 +14,10 @@
   ],
   "functions": {
     "./routes/*.js": {
-      "maxDuration": 30
+      "maxDuration": 25
     },
     "./controllers/*.js": {
-      "maxDuration": 30
+      "maxDuration": 25
     }
   }
 }
