@@ -11,13 +11,5 @@
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ],
-  "functions": {
-    "./routes/*.js": {
-      "maxDuration": 30
-    },
-    "./controllers/*.js": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
