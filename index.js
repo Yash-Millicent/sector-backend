@@ -7,6 +7,7 @@ import industry from "./routes/industryRoutes.js";
 import company from "./routes/companyRoutes.js";
 import scanners from "./routes/scannerRoutes.js";
 import login from "./routes/authRoutes.js";
+import indicators from "./routes/indicatorRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 8000;
@@ -29,6 +30,7 @@ app.use("/api/sectors", sector);
 app.use("/api/industries", industry);
 app.use("/api/companies", company);
 app.use("/api/scanners", scanners);
+app.use("/api/indicators", indicators);
 
 sequelize
   .authenticate()
