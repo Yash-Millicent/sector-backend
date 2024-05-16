@@ -9,6 +9,6 @@ import {
 const router = express.Router();
 
 router.get("/:id", getIndustryList);
-router.get("/areagraph/:sectorID/:industryID/:index", getAreaGraph);
+router.get("/areagraph/:index/:type/:sectorID/:industryID", getAreaGraph);
 
 export default router;

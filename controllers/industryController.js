@@ -25,16 +25,17 @@ export const getIndustryList = async (req, res) => {
 
 export const getAreaGraph = async (req, res) => {
   try {
+    const index = req.params.index;
+    const type = req.params.type;
     const sectorId = req.params.sectorID;
     const industryId = req.params.industryID;
-    const index = req.params.index;
-    console.log("areagraph", sectorId, industryId, index);
+    console.log("areagraph", index, type, sectorId, industryId);
 
     sequelize
       .query(
-        "CALL `sp_get_index-overview_v1`(:index, :sectorId, :industryId)",
+        "CALL `sp_get_index-overview_v1`(:index, :type, :sectorId, :industryId)",
         {
-          replacements: { index, sectorId, industryId },
+          replacements: { index, type, sectorId, industryId },
         }
       )
       .then(function (graphData) {
