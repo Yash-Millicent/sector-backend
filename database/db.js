@@ -6,7 +6,7 @@ dotenv.config();
 
 const USERNAME = process.env.DB_USERNAME || "user";
 const PASSWORD = process.env.DB_PASSWORD || "user";
-const HOST = process.env.DB_HOST || "192.168.1.2";
+const HOST = process.env.DB_HOST || "203.212.222.191";
 const DATABASE = process.env.DB_DATABASE || "shreeja_v2.0.1";
 
 const CONNECTION_TIMEOUT = 120000;
