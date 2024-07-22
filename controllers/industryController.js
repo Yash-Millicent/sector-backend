@@ -40,10 +40,25 @@ export const getAreaGraph = async (req, res) => {
       )
       .then(function (graphData) {
         res.json(graphData);
-        console.log(graphData);
+        // console.log(graphData);
       });
   } catch (error) {
     console.error("Error getting graph data:", error);
+    res.status(500).json({ message: error });
+  }
+};
+
+export const getIndustryMaster = async (req, res) => {
+  console.log("industry masterrrrr");
+  try {
+    sequelize
+      .query("CALL `sp_get_industrymaster_all`")
+      .then(function (industryList) {
+        res.json(industryList);
+        // console.log(graphData);
+      });
+  } catch (error) {
+    console.error("Error getting industry list:", error);
     res.status(500).json({ message: error });
   }
 };
