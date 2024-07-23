@@ -2,15 +2,17 @@
 
 import express from "express";
 import {
-  getAreaGraph,
+  getCompanyList,
+  getIndustryIndex,
   getIndustryList,
   getIndustryMaster,
-} from "../controllers/industryController.js";
+} from "../controllers/compositionController.js";
 
 const router = express.Router();
 
 router.get("/:id", getIndustryList);
-router.get("/areagraph/:index/:type/:sectorID/:industryID", getAreaGraph);
 router.get("/data/industryList", getIndustryMaster);
+router.get("/:sectorId/:industryId", getCompanyList);
+router.get("/industryIndex/sector/:sectorName", getIndustryIndex);
 
 export default router;
