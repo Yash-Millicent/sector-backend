@@ -24,3 +24,22 @@ export const getAreaGraph = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+
+export const getAreaGraphNew = async (req, res) => {
+  try {
+    const sectorId = req.params.sectorID;
+    const industryId = req.params.industryID;
+    console.log("graph", sectorId, industryId);
+
+    sequelize
+      .query("CALL `sp_sector_index_v1`(:sectorId, :industryId)", {
+        replacements: { sectorId, industryId },
+      })
+      .then(function (graphData) {
+        res.json(graphData);
+      });
+  } catch (error) {
+    console.error("Error getting graph data:", error);
+    res.status(500).json({ message: error });
+  }
+};
