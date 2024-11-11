@@ -54,13 +54,10 @@ export const getCompanyList = async (req, res) => {
 };
 
 export const getIndustryIndex = async (req, res) => {
+  console.log("Industry index");
   try {
-    const sectorName = req.params.sectorName;
-
     sequelize
-      .query("CALL `sp_get_live_index_overview_v1`(:sectorName)", {
-        replacements: { sectorName },
-      })
+      .query("CALL `sp_get_sector_index_live_v1`")
       .then((industryIndex) => res.json(industryIndex));
   } catch (error) {
     console.error("Error getting industry index:", error);
