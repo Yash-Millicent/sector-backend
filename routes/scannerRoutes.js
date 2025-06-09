@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getDetailsBySectorOrIndices,
+  getRSICrossover, 
   getTechnicalTableData,
 } from "../controllers/scannerController.js";
 
@@ -11,5 +12,6 @@ router.get(
   getDetailsBySectorOrIndices
 );
 router.get("/technical-data", getTechnicalTableData);
+router.get("/get-rsi-crossover", getRSICrossover);
 
 export default router;

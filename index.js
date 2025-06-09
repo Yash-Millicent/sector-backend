@@ -16,7 +16,6 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    // origin: ["https://sector-analyser.netlify.app"],
     origin: true,
     methods: ["PUT", "POST", "GET", "DELETE", "PATCH"],
     credentials: true,
@@ -41,3 +40,5 @@ sequelize
   .catch((err) => {
     console.error("Unable to connect to the database:", err);
   });
+
+// export default app;

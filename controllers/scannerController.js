@@ -42,6 +42,18 @@ export const getDetailsBySectorOrIndices = async (req, res) => {
   }
 };
 
+export const getRSICrossover = async (req, res) => {
+  try {
+    sequelize
+      .query("CALL `Get_rsi_record_overbought_oversold_v1`()")
+      .then(function (companies) {
+        res.json(companies);
+      });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 export const getTechnicalTableData = async (req, res) => {
   try {
     sequelize
